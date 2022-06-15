@@ -1,0 +1,11 @@
+.avatar {
+    background-image: url(../../images/image_profile.jpg);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    background-color: transparent;
+}

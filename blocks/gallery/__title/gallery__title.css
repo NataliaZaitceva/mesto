@@ -1,0 +1,7 @@
+.gallery__title{
+    display: flex;
+    flex-direction: row;
+    margin: 25px 30px auto 21px; 
+    justify-content: space-between;
+    align-self: center;
+}

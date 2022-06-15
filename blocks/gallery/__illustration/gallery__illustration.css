@@ -1,0 +1,7 @@
+.gallery__illustration {
+    grid-area: 'figure';
+    background-color: white;
+    height: 361px;
+    border-radius: 2%;
+    margin: 0;
+}

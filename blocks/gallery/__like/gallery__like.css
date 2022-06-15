@@ -1,0 +1,21 @@
+.gallery__like {
+    background-image: url(../../../images/like.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    width: 22px;
+    height: 19px;
+    background-repeat: no-repeat;
+}
+
+.gallery__like:hover {
+    cursor: pointer;
+    opacity: 0.2;
+    transition: opacity 0.3s linear;
+}
+
+.gallery__like:active {
+    cursor: pointer;
+    background-color: #000000;
+    transition: opacity 0.3s linear;
+}
