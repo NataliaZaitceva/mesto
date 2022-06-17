@@ -2,10 +2,11 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    margin: 0;
+    margin: 10px auto 0 auto;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    font-family: 'Inter';
 }
 
 @media screen and (max-width: 871px) {

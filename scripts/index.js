@@ -16,8 +16,8 @@ const popupSave = document.querySelector('.popup__submit')
 let formElement = document.querySelector('.popup__form')
 let profileInfo = document.querySelector('.profile__info')
 
-let nameInput = formElement.querySelector('.popup__name')
-let jobInput = formElement.querySelector('.popup__description')
+let nameInput = formElement.querySelector('.popup__text_description_name')
+let jobInput = formElement.querySelector('.popup__text_description_profession')
 let profileName = profileInfo.querySelector('.profile__name');
 let profileProfession = profileInfo.querySelector('.profile__subtitle')
 

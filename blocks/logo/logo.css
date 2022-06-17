@@ -1,6 +1,6 @@
 .logo {
     max-width: 142px;
-    margin: 45px auto 39px auto;
+    margin: 45px auto 40px 0;
 }
 
 @media screen and (max-width: 868px) {

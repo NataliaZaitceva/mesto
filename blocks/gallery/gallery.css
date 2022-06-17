@@ -11,7 +11,8 @@
     object-fit: contain;
     grid-column-gap: 17px;
     grid-row-gap: 20px;
-    padding-top: 47.5px;
+    padding-top: 47.2px;
+    box-sizing: border-box;
 
 }
 

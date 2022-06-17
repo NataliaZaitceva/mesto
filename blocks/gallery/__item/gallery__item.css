@@ -4,4 +4,6 @@
     object-fit: cover;
     overflow: hidden;
     border-radius: 2%;
+    text-align: center;
 }
+

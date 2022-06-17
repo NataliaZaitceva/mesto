@@ -1,0 +1,13 @@
+.gallery__discription {
+    display: flex;
+    flex-direction: row;
+    margin: 25px 30px auto 21px;
+    justify-content: space-between;
+    align-self: center;
+}
+
+@media screen and (max-width: 320px) {
+    .gallery__discription {
+        margin: 25px 15px auto 21px;
+    }
+}

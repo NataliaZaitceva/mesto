@@ -1,7 +1,27 @@
-.gallery__title{
-    display: flex;
-    flex-direction: row;
-    margin: 25px 30px auto 21px;
-    justify-content: space-between;
-    align-self: center;
+.gallery__title {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    max-width: 215px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 871px) {
+    .profile__title {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 354px) {
+    .profile__title {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
