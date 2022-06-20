@@ -10,18 +10,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
+    
 }
 
 
-@media screen and (max-width: 871px) {
-    .profile__title {
-        margin: 0 auto;
-    }
-}
 
-@media screen and (max-width: 354px) {
-    .profile__title {
-        font-size: 14px;
-        line-height: 17px;
-    }
-}

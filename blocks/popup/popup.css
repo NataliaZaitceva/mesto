@@ -9,7 +9,4 @@
     background-color: #000000;
     background: rgba(0, 0, 0, 0.5);
     align-items: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }

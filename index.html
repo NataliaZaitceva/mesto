@@ -18,59 +18,65 @@
             <div class="profile__info">
                 <div class="profile__edit">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <form>
-                        <button type="button" class="profile__edit-button"></button>
-                    </form>
+                    <button type="button" class="button_profile_edit"></button>
                 </div>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <form>
-                <button type="button" class="profile__add-button"></button>
-            </form>
+            <button type="button" class="button_profile_add"></button>
         </section>
-        <section class="gallery">
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Anapa.jpg" alt="Анапа">
-                 <div class="gallery__discription"> <h2 class="gallery__title">Анапа </h2><button type="button" class="gallery__like"></button></div>
-            </div>
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Khabarovsk.jpg" alt="Хабаровск">
-                <div class="gallery__discription">  <h2 class="gallery__title">Хабаровск</h2><button type="button" class="gallery__like"></button></div>
-            </div>
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Krasnodar.jpg" alt="Краснодар">
-                <div class="gallery__discription"> <h2 class="gallery__title">Краснодар</h2><button type="button" class="gallery__like"></button></div>
-            </div>
+        <ul class="gallery">
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Anapa.jpg" alt="Анапа">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Анапа </h2><button type="button" class="button_like_gallery"></button>
+                </div>
+            </li>
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Khabarovsk.jpg" alt="Хабаровск">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Хабаровск</h2><button type="button" class="button_like_gallery"></button>
+                </div>
+            </li>
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Krasnodar.jpg" alt="Краснодар">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Краснодар</h2><button type="button" class="button_like_gallery"></button>
+                </div>
+            </li>
 
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Novosibirsk.JPG" alt="Новосбирск">
- <div class="gallery__discription"><h2 class="gallery__title">Новосибирск</h2><button type="button" class="gallery__like"></button></div>
-            </div>
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Novosibirsk.JPG" alt="Новосбирск">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Новосибирск</h2><button type="button" class="button_like_gallery"></button>
+                </div>
+            </li>
 
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Saint-Petersburg.jpg" alt="Санкт-Петербург">
-                <div class="gallery__discription"><h2 class="gallery__title">Санкт-Петербург</h2><button type="button" class="gallery__like"></button></div>
-            </div>
-            <div class="gallery__illustration"><img class="gallery__item" src="./images/Vladivostok.jpg" alt="Владивосток">
-                <div class="gallery__discription"><h2 class="gallery__title">Владивосток</h2><button type="button" class="gallery__like"></button></div>
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Saint-Petersburg.jpg" alt="Санкт-Петербург">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Санкт-Петербург</h2><button type="button" class="button_like_gallery"></button>
+                </div>
+            </li>
+            <li class="gallery__item"><img class="gallery__illustration" src="./images/Vladivostok.jpg" alt="Владивосток">
+                <div class="gallery__description">
+                    <h2 class="gallery__title">Владивосток</h2><button type="button" class="button_like_gallery"></button>
+                </div>
 
-            </div>
-        </section>
+            </li>
+        </ul>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup-edit-profile">
+    <div class="popup popup_edit_profile">
         <div class="popup__container">
-            <form class="popup__form" name="name">
+            <form class="popup__form" name="editProfileForm">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <label for="name">
-                    <input type="text" id="name" class="popup__text popup__text_description_name" value="Жак-Ив Кусто">
+                    <input type="text" id="name" class="popup__input popup__input_description_name" value="Жак-Ив Кусто" placeholder="Имя" required>
                 </label>
                 <label for="description">
-                    <input type="text" id="description" class="popup__text popup__text_description_profession" value="Исследователь океанов">
+                    <input type="text" id="description" class="popup__input popup__input_description_profession" value="Исследователь океанов" placeholder="Профессия" required>
                 </label>
-                <button type="submit" class="popup__submit">Сохранить</button>
+                <button type="submit" class="button_popup_submit">Сохранить</button>
             </form>
-            <button type="button" class="popup__close"></button>
+            <button type="button" class="button_popup_close"></button>
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-</body>
-
-</html>
+</body></html>

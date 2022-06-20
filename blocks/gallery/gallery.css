@@ -3,7 +3,6 @@
     margin: 0 auto;
     display: grid;
     grid-auto-columns: 1fr 1fr 1fr;
-    grid-auto-rows: repeat(2, 1fr);
     justify-content: center;
     grid-template-areas:
         'figure figure figure'
@@ -11,16 +10,22 @@
     object-fit: contain;
     grid-column-gap: 17px;
     grid-row-gap: 20px;
-    padding-top: 47.2px;
+    padding: 47px 0 0 0;
     box-sizing: border-box;
+    list-style: none; 
 
+}
+
+@media screen and (max-width: 897px) {
+    .gallery {
+          padding: 36px 10px 0 10px;   
+    }
 }
 
 @media screen and (max-width: 814px) {
     .gallery {
         grid-auto-columns: 1fr 1fr;
         grid-auto-rows: repeat(3, 1fr);
-        max-width: 814px;
         grid-template-areas:
             'figure figure';
     }
@@ -31,8 +36,17 @@
         grid-auto-columns: 1fr;
         grid-template-areas:
             'figure';
-        max-width: 289px;
+        max-width: 282px;
         grid-gap: 20px;
-        padding-top: 36px;
+        margin: 0 auto; 
+       justify-self: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .gallery {
+    margin: 0 auto;
+    padding: 36px 0 0 0;
     }
 }

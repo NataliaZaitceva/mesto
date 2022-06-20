@@ -1,23 +1,40 @@
-const profileeditbutton = document.querySelector('.profile__edit-button')
+const profileeditbutton = document.querySelector('.button_profile_edit')
 const popup = document.querySelector('.popup')
 
-profileeditbutton.addEventListener('click', (Event) => {
+profileeditbutton.addEventListener('click', openPopup);
+
+function openPopup(event){
     popup.classList.add('popup_opened')
-})
+}
 
-const closebutton = document.querySelector('.popup__close')
+const closeButton = document.querySelector('.button_popup_close')
 
-closebutton.addEventListener('click', (Event) => {
+function closePopup(event){
     popup.classList.remove('popup_opened')
-})
+}
 
-const popupSave = document.querySelector('.popup__submit')
+closeButton.addEventListener('click', closePopup)
+    
 
 let formElement = document.querySelector('.popup__form')
 let profileInfo = document.querySelector('.profile__info')
+let popupButtonSave = document.querySelector('.button_popup_submit')
 
-let nameInput = formElement.querySelector('.popup__text_description_name')
-let jobInput = formElement.querySelector('.popup__text_description_profession')
+function closePopup(event){ 
+    popup.classList.remove('popup_opened')
+}
+
+function popupSave(event){
+ popupButtonSave.addEventListener('click', function
+closePopup(event){ 
+    popup.classList.remove('popup_opened')
+})     
+}
+
+popupButtonSave.addEventListener('click', closePopup);
+
+let nameInput = formElement.querySelector('.popup__input_description_name')
+let jobInput = formElement.querySelector('.popup__input_description_profession')
 let profileName = profileInfo.querySelector('.profile__name');
 let profileProfession = profileInfo.querySelector('.profile__subtitle')
 
@@ -25,6 +42,11 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileProfession.textContent = jobInput.value;
+ function closePopup(event){ 
+    popup.classList.remove('popup_opened')
+}   
 }
 
+
 formElement.addEventListener('submit', formSubmitHandler);
+
