@@ -13,11 +13,18 @@
 
 }
 
-@media screen and (max-width: 354px) {
+@media screen and (max-width: 657px) {
     .profile__name {
+        max-width: 320px;
         font-size: 27px;
         line-height: 33px;
         padding: 0 10px 14px 0;
-
     }
 }
+
+@media screen and (max-width: 433px) {
+    .profile__name {
+        max-width: 200px;
+    }
+}
+

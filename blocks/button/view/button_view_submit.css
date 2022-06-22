@@ -1,4 +1,4 @@
-.button_popup_submit {
+.button_view_submit {
     background: #000000;
     border: none;
     border-radius: 2px;
@@ -13,14 +13,14 @@
     line-height: 22px;
 }
 
-.button_popup_submit:hover {
+.button_view_submit:hover {
     opacity: 80%;
     transition: opacity 0.3s linear;
     cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
-    .button_popup_submit {
+    .button_view_submit {
         font-size: 14px;
         line-height: 17px;
         height: 46px;
