@@ -22,8 +22,8 @@ let profileName = profileInfo.querySelector('.profile__name');
 let profileProfession = profileInfo.querySelector('.profile__subtitle')
 
 function openPopup(event){
-nameInput = formElement.querySelector('.popup__input_description_name')
-jobInput = formElement.querySelector('.popup__input_description_profession')
+nameInput.value = profileName.textContent;
+jobInput.value = profileProfession.textContent;
     popup.classList.add('popup_opened')
 }
 function formSubmitHandler(evt) {
