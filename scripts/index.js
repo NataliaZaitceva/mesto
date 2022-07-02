@@ -46,10 +46,10 @@ function formSubmitHandler(evt) {
 
 formElement.addEventListener('submit', formSubmitHandler);
 
-let formGalleryElement = document.querySelector('.popup__form_gallery')
+let formGalleryElement = document.querySelector('.popup__gallery-form');
 
-let itemInput = document.querySelector('.gallery__item')
-let placeInput = formGalleryElement.querySelector('.popup_photo_title')
+let itemInput = document.querySelector('.gallery__item');
+let placeInput = formGalleryElement.querySelector('.popup__capture');
 let galleryDescription = document.querySelector('.gallery__description');
 
 
@@ -89,7 +89,7 @@ const photoGallery = document.querySelector('.gallery__illustration');
 
 const list = document.querySelector('.gallery');
 const formButton = document.querySelector('addProfileForm')
-const formInput = document.querySelector('.popup__form_gallery')
+const formInput = document.querySelector('.popup__photo-container')
 const link = document.querySelector('.popup__input_description_link');
 const photoName = document.querySelector('.popup__input_description_place');
 const photoDescription = document.querySelector('.gallery__description');
