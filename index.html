@@ -25,46 +25,15 @@
             <button type="button" class="button button_view_add"></button>
         </section>
         <section>
-        <ul class="gallery">
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Anapa.jpg" alt="Анапа">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Анапа </h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Khabarovsk.jpg" alt="Хабаровск">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Хабаровск</h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Krasnodar.jpg" alt="Краснодар">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Краснодар</h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Novosibirsk.JPG" alt="Новосбирск">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Новосибирск</h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Saint-Petersburg.jpg" alt="Санкт-Петербург">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Санкт-Петербург</h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-            <li class="gallery__item"><img class="gallery__illustration" src="./images/Vladivostok.jpg" alt="Владивосток">
-                <div class="gallery__description">
-                    <h2 class="gallery__title">Владивосток</h2><button type="button" class="button button_view_like"></button>
-                </div>
-            </li>
-        </ul>
+            <ul class="gallery">
+                <li class="gallery__item"></li>
+            </ul>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup_edit_profile">
+    <div class="popup" id="popupeditprofile">
         <div class="popup__container">
             <form class="popup__form" name="editProfileForm">
                 <h2 class="popup__title">Редактировать профиль</h2>
@@ -79,5 +48,41 @@
             <button type="button" class="button button_view_close"></button>
         </div>
     </div>
-    <script src="./scripts/index.js"></script>
-</body></html>
+    <div class="popup" id="popupaddphoto">
+        <div class="popup__container">
+            <form class="popup__form_gallery" name="addProfileForm">
+                <h2 class="popup__photo popup_photo_title">Новое место</h2>
+                <label for="name">
+                    <input type="text" id="name" class="popup__input popup__input_description_place" placeholder="Название" required>
+                </label>
+                <label for="description">
+                    <input type="src" id="link" class="popup__input popup__input_description_link" placeholder="Ссылка на картинку" required>
+                </label>
+                <button type="submit" class="button button_view_submit">Сохранить</button>
+            </form>
+            <button type="button" class="button button_view_close"></button>
+        </div>
+    </div>
+    <div class="popup popup_image_max" id="popupimage">
+        <div class="popup__container_image">
+            <img class="popup__image" src="" alt="">
+            <h2 class="popup__subtitle"></h2>
+            <button type="button" class="button button_view_close"></button>
+        </div>
+    </div>
+        <template class="template__card" id="template__card">
+            <li class="gallery__item">
+                <img class="gallery__illustration" src="" alt="">
+                <div class="gallery__description">
+                    <h2 class="gallery__title"></h2>
+                    <button class="button button_view_like" type="button"></button>
+                </div>
+                <button class="button button_view_trash" type="remove"></button>
+            </li>
+        </template>
+
+        <script src="./scripts/index.js"></script>
+
+</body>
+
+</html>
