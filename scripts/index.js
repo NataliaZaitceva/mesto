@@ -32,7 +32,7 @@ const profileProfession = profileInfo.querySelector('.profile__subtitle');
 function openEditPopup(event) {
     nameInput.value = profileName.textContent;
     jobInput.value = profileProfession.textContent;
-    popup.classList.add('popup_opened')
+    openPopup(editPopup);
 }
 
 
@@ -109,13 +109,14 @@ function createCard(place) {
 });
     htmlElement.querySelector('.gallery__illustration').addEventListener('click', () => {openPopup(popupImageMax);
         picturePopup.src = place.link;
-        subtitlePopup.textContent = place.name});
+        subtitlePopup.textContent = place.name;
+        picturePopup.alt = place.name});
     return htmlElement;
 };
 
 
-function renderCard(htmlElement){
-    list.prepend(createCard(htmlElement));
+function renderCard(place){
+    list.prepend(createCard(place));
 };
   
 function renderItems(){
