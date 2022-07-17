@@ -17,17 +17,17 @@ closeButtons.forEach((closeButtons) => { //закрытие всех попап�
 });
 
 popup.forEach(popup=> { //закрытие попапа по клику на оверлей
-    popup.addEventListener('mousedown', handlePopupClick);
+    popup.addEventListener('mousedown', closePopupClick);
     })
 
     
-    function handlePopupClick(evt) { 
+    function closePopupClick(evt) { 
         if (evt.target.classList.contains('popup')) {
           closePopup(evt.target);
         }
       }
 
-      function handlePopupEsc(evt){ //закрытие попапа через esc
+      function closePopupEsc(evt){ //закрытие попапа через esc
         const popupOpen = document.querySelector('.popup_opened');
         if (evt.key === 'Escape' && popupOpen) {
           closePopup(popupOpen);
@@ -43,7 +43,7 @@ function closePopup(popup){ //закрытие попапов
     }
 };
 
-document.addEventListener('keydown', handlePopupEsc);
+document.addEventListener('keydown', closePopupEsc);
 
 const formElement = document.querySelector('.popup__edit-form')
 const profileInfo = document.querySelector('.profile__info')
