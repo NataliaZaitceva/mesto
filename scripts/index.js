@@ -1,14 +1,12 @@
 const profileEditButton = document.querySelector('.button_view_edit');
 const editPopup = document.querySelector('#popupeditprofile');
 const popups = document.querySelectorAll('.popup');
-const closeButtons = document.querySelectorAll('.button_view_close')
-
 
 profileEditButton.addEventListener('click', () => { openPopup(editPopup) });
 
 function openPopup(popups) { //функция открытия попапа
     popups.classList.add('popup_opened');
-    document.addEventListener('keydown', closePopupEsc);
+    document.addEventListener('keydown', handleEscKey);
 };
 
 popups.forEach((popups) => { //закрытие попапа по крестику и клику на оверлей
@@ -22,22 +20,18 @@ popups.forEach((popups) => { //закрытие попапа по крестик
     });
 })
 
-function closePopupEsc(evt) { //закрытие попапа через esc
+function handleEscKey(evt) { //закрытие попапа через esc
     if (evt.key === 'Escape') {
         const popupOpen = document.querySelector('.popup_opened');
         popupOpen && closePopup(popupOpen);
-        document.removeEventListener('keydown', closePopupEsc);
     }
 }
 
 
 function closePopup(popups) { //закрытие попапов
     popups.classList.remove('popup_opened');
-
-
+    document.removeEventListener('keydown', handleEscKey);
 };
-
-document.addEventListener('keydown', closePopupEsc);
 
 const formInfoEdit = document.querySelector('.popup__edit-form')
 const profileInfo = document.querySelector('.profile__info')
@@ -87,8 +81,6 @@ const subtitlePopup = document.querySelector('.popup__subtitle');
 const addButton = document.querySelector('.button_view_add');
 const galleryName = document.querySelector('.gallery__title');
 const popupAdd = document.querySelector('#popupaddphoto');
-
-const inputsEdit = document.querySelectorAll('.popup__input');
 
 const initialCards = [
     {
@@ -158,16 +150,15 @@ function renderItems() {
 
 addButton.addEventListener('click', () => { openPopup(popupAdd) });
 
-function handlerSubmitGallery(evt) {
+function handleSubmitGallery(evt) {
     evt.preventDefault();
     renderCard({ name: photoName.value, link: link.value });
     closePopup(popupAdd);
     evt.target.reset();
-    const buttonElement = formGalleryElement.querySelector('.button_view_submit');
-    buttonElement.setAttribute('disabled', true);
+    evt.submitter.setAttribute('disabled', true);
 }
 
-formGalleryElement.addEventListener('submit', handlerSubmitGallery);
+formGalleryElement.addEventListener('submit', handleSubmitGallery);
 
 renderItems();
 
