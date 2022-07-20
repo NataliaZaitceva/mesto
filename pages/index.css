@@ -12,7 +12,6 @@
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_view/button_view_submit.css);
-@import url(../blocks/button/_view/button_view_submit-disabled.css);
 @import url(../blocks/button/_view/button_view_submit-invalid.css);
 @import url(../blocks/button/_view/button_view_submit-valid.css);
 @import url(../blocks/button/_view/button_view_add.css);

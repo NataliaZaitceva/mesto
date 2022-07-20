@@ -27,3 +27,12 @@
         margin-top: 15px;
     }
 }
+
+.button_view_submit:disabled{
+    color: #000000;
+    background-color: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    cursor: auto;
+    opacity: 0.2;
+  }
