@@ -1,6 +1,17 @@
+import { FormValidator } from './FormValidator.js';
+
 const profileEditButton = document.querySelector('.button_view_edit');
 const editPopup = document.querySelector('#popupeditprofile');
 const popups = document.querySelectorAll('.popup');
+
+const validationObject = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.button_view_submit',
+    inactiveButtonClass: 'button_view_submit-invalid',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error'
+}
 
 profileEditButton.addEventListener('click', () => { openPopup(editPopup) });
 
@@ -63,8 +74,6 @@ const itemInput = document.querySelector('.gallery__item');
 const placeInput = formGalleryElement.querySelector('.popup__capture');
 const galleryDescription = document.querySelector('.gallery__description');
 
-const itemTemplate = document.querySelector('.template__card').content;
-
 
 const title = document.querySelector('.gallery__title');
 
@@ -109,57 +118,48 @@ const initialCards = [
     }
 ]
 
+import { Card } from './card.js';
+const cardSelector = '.template__card';
 
-function createCard(place) { //создание карточек
-    const htmlElement = itemTemplate.querySelector('.gallery__item').cloneNode(true);
-    const htmlElementTitle = htmlElement.querySelector('.gallery__title');
+const addCard = (link, name) => {
+    
+    const card = new Card (link, name, '#item', openPopup).generateCard();
+   
+    list.prepend(card);
+     
+};
 
-    htmlElementTitle.textContent = place.name;
-    const htmlElementImage = htmlElement.querySelector('.gallery__illustration');
-
-    htmlElementImage.src = place.link;
-    htmlElementImage.alt = place.name;
-
-    const htmlElementLike = htmlElement.querySelector('.button_view_like');
-    htmlElementLike.addEventListener('click', function (evt) {
-        evt.target.classList.toggle('button_view_like-active');//лайки
-    });
-
-    const htmlElementTrash = htmlElement.querySelector('.button_view_trash');
-    htmlElementTrash.addEventListener('click', function (evt) {
-        htmlElement.remove();//удаление
-    });
-    htmlElementImage.addEventListener('click', () => {
-        openPopup(popupImageMax);//попап на увеличение
-        picturePopup.src = place.link;
-        subtitlePopup.textContent = place.name;
-        picturePopup.alt = place.name
-    });
-    return htmlElement;
-}
-
-
-function renderCard(place) {
-    list.prepend(createCard(place));
-}
-
-function renderItems() {
-    initialCards.forEach(renderCard);
-}
-
+const renderInitialCards = () => {
+     initialCards.forEach((item) => {
+       addCard(item.link, item.name,  cardSelector); 
+});
+};
 
 addButton.addEventListener('click', () => { openPopup(popupAdd) });
 
+formGalleryElement.addEventListener('submit', handleSubmitGallery);
+
 function handleSubmitGallery(evt) {
     evt.preventDefault();
-    renderCard({ name: photoName.value, link: link.value });
+    addCard(link.value, photoName.value);
+    link.value = '';
+    photoName.value = '';
     closePopup(popupAdd);
     evt.target.reset();
     evt.submitter.setAttribute('disabled', true);
 }
 
-formGalleryElement.addEventListener('submit', handleSubmitGallery);
 
-renderItems();
+renderInitialCards(initialCards);
 
-enableValidation(validationObject);
+//renderItems();
+
+//enableValidation(validationObject);
+
+export { openPopup, popupImageMax, picturePopup, subtitlePopup, validationObject };
+
+const cardValidity = new FormValidator (validationObject, editPopup);
+cardValidity.enableValidation();
+
+const profileValidity = new FormValidator (validationObject, popupAdd);
+profileValidity.enableValidation ()
