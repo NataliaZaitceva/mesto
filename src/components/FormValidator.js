@@ -1,4 +1,3 @@
-import { validationObject as settings } from "./index.js";
 
 export class FormValidator {
   constructor(settings, formPopup) {

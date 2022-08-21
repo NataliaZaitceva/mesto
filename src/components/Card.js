@@ -1,15 +1,20 @@
-import {
-  openPopup,
+//import { openPopup } from "./index.js"
+  
+import { 
   popupImageMax,
   picturePopup,
   subtitlePopup,
-} from "./index.js";
+} from "../components/components.js";
+
+
+
 export class Card {
-  constructor(link, name, cardSelector, openPopup) {
+  constructor(link, name, cardSelector, handleCardClick) {
     this._link = link;
-    this._name = name;
+    this._name =  name;
     this._cardSelector = cardSelector;
-    this._openPopup = openPopup;
+   // this._openPopup = openPopup;
+    this._handleCardClick = handleCardClick; 
   }
 
   _getTemplate() {
@@ -30,6 +35,7 @@ export class Card {
     this._title = this._element.querySelector(".gallery__title");
     this._title.textContent = this._name;
     this._setEventListeners();
+    
     return this._element;
   }
 
@@ -43,12 +49,12 @@ export class Card {
     bthLike.classList.toggle("button_view_like-active");
   }
 
-  _openImageMax() {
+  /*openImageMax() {
     picturePopup.src = this._link;
     picturePopup.alt = this._name;
     subtitlePopup.textContent = this._name;
     this._openPopup(popupImageMax);
-  }
+  }*/
 
   _setEventListeners() {
     this._element
@@ -61,8 +67,8 @@ export class Card {
       .addEventListener("click", () => {
         this._likeCard();
       });
-    this._photo.addEventListener("click", () => {
-      this._openImageMax();
-    });
+      this._photo.addEventListener("click", () => {
+   this._handleCardClick(this._link, this._name)
+  })
   }
 }
