@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Сервис "Место"</title>
-   <!--<link rel="stylesheet" href="./pages/index.css">-->
+    <!--<link rel="stylesheet" href="./pages/index.css">-->
 </head>
 
 <body class="root">
@@ -37,11 +37,11 @@
             <form class="popup__form popup__edit-form " name="editProfileForm" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
                <label for="name">
-                    <input type="text" id="name" class="popup__input popup__input_description_name" value="Жак-Ив Кусто" minlength="2" maxlength="40" placeholder="Имя"  required>
+                    <input name ="name" type="text" id="name" class="popup__input popup__input_description_name" value="Жак-Ив Кусто" minlength="2" maxlength="40" placeholder="Имя"  required>
                     <span  id="name-error" class="popup__input-error popup__error popup__error_visible"></span>
                </label>
                 <label>
-                    <input type="text" id="description" class="popup__input popup__input_description_profession" value="Исследователь океанов" minlength="2" maxlength="200" placeholder="Профессия" required>
+                    <input name = "profession" type="text" id="description" class="popup__input popup__input_description_profession" value="Исследователь океанов" minlength="2" maxlength="200" placeholder="Профессия" required>
                     <span id="description-error" class="popup__input-error popup__error popup__error_visible"></span>
                 </label>
                 <button type="submit" class="button button_view_submit">Сохранить</button>
@@ -54,11 +54,11 @@
             <form class="popup__form popup__gallery-form" name="addProfileForm" novalidate>
                 <h2 class="popup__capture">Новое место</h2>
                 <label for="name_gallery">
-                    <input type="text" id="name_gallery" class="popup__input popup__input_description_place" minlength="2" maxlength="40" placeholder="Название" required>
+                    <input  type="text" id="name_gallery" name ="name" class="popup__input popup__input_description_place" minlength="2" maxlength="40" placeholder="Название" required>
                     <span id="name_gallery-error" class="popup__input-error popup__error popup__error_visible"></span>
                 </label>
                 <label for="link">
-                    <input type="url" id="link" class="popup__input popup__input_description_link" placeholder="Ссылка на картинку" required>
+                    <input type="url" id="link" name="link" class="popup__input popup__input_description_link" placeholder="Ссылка на картинку" required>
                     <span id="link-error" class="popup__input-error popup__error popup__error_visible"></span>
                 </label>
                 <button type="submit" class="button button_view_submit">Сохранить</button>
@@ -83,7 +83,7 @@
                 <button class="button button_view_trash" type="remove"></button>
             </li>
         </template>
-      <!--  <script type="module" src="./pages/index.js"></script> -->
+        <!--<script type="module" src="./scripts/index.js"></script>-->
 
 </body>
 

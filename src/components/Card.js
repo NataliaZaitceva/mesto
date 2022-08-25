@@ -1,26 +1,18 @@
 //import { openPopup } from "./index.js"
   
-import { 
-  popupImageMax,
-  picturePopup,
-  subtitlePopup,
-} from "../components/components.js";
-
-
-
 export class Card {
-  constructor(link, name, cardSelector, handleCardClick) {
-    this._link = link;
-    this._name =  name;
+  constructor({data, handleCardClick}, cardSelector) {
+    this._link = data.link;
+    this._name =  data.name;
     this._cardSelector = cardSelector;
-   // this._openPopup = openPopup;
     this._handleCardClick = handleCardClick; 
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector("#template__card")
-      .content.querySelector("#item")
+      .querySelector(this._cardSelector)
+      .content
+      .querySelector("#item")
       .cloneNode(true);
 
     return cardElement;

@@ -9,6 +9,8 @@ export class FormValidator {
       (this._inactiveButtonClass = settings.inactiveButtonClass),
       (this._inputErrorClass = settings.inputErrorClass),
       (this._errorClass = settings.errorClass);
+      this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
+      this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
   }
 
   _showInputError = (inputsEdit, errorMessage) => {
@@ -21,7 +23,7 @@ export class FormValidator {
     formError.textContent = errorMessage;
     formError.classList.add(this._errorClass);
   };
-  _hideInputError = (inputsEdit) => {
+  _hideInputError(inputsEdit) {
     //скрыть инпут с ошибкой, если ее нет
     const formError = this._formElement.querySelector(
       `#${inputsEdit.id}-error`
@@ -32,46 +34,45 @@ export class FormValidator {
   };
   _checkInputValidity = (inputsEdit) => {
     //сообщения об ошибке
-    if (inputsEdit.validity.valid) {
-      this._hideInputError(inputsEdit);
-    } else {
+    if (!inputsEdit.validity.valid) {
       this._showInputError(inputsEdit, inputsEdit.validationMessage);
+    } else {
+      this._hideInputError(inputsEdit);
     }
   };
-  _hasInvalidInput(inputList) {
+
+  _hasInvalidInput() {
     //валидность импута
-    return inputList.some((inputsEdit) => {
+    return this._inputList.some((inputsEdit) => {
       return !inputsEdit.validity.valid;
     });
   }
-  _switchButton(inputList, submitButton) {
+
+  switchButton() {
     //деактивированный вид кнопки
 
-    if (this._hasInvalidInput(inputList)) {
-      submitButton.setAttribute("disabled", true);
-      submitButton.classList.add(this._inactiveButtonClass);
+    
+    if (this._hasInvalidInput(this._inputList)) {
+      this._submitButton.setAttribute("disabled", true);
+      this._submitButton.classList.add(this._inactiveButtonClass);
     } else {
-      submitButton.removeAttribute("disabled");
-      submitButton.classList.remove(this._inactiveButtonClass);
+      this._submitButton.removeAttribute("disabled");
+      this._submitButton.classList.remove(this._inactiveButtonClass);
     }
   }
   _setEventListeners() {
     //слушатели
 
-    const inputList = Array.from(
-      this._formElement.querySelectorAll(this._inputSelector)
-    );
-
-    const submitButton = this._formElement.querySelector(
+   /* const submitButton = this._formElement.querySelector(
       this._submitButtonSelector
-    );
-    this._switchButton(inputList, submitButton);
+    );*/
+    this.switchButton();
 
-    inputList.forEach((inputsEdit) => {
+    this._inputList.forEach((inputsEdit) => {
       inputsEdit.addEventListener("input", () => {
         this._checkInputValidity(inputsEdit);
 
-        this._switchButton(inputList, submitButton);
+        this.switchButton();
       });
     });
   }

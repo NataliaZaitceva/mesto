@@ -41,3 +41,6 @@ export const popupAdd = document.querySelector("#popupaddphoto");
 
 export const cardSelector = ".template__card";
 export const cardListSection = ".gallery"
+export const photoAddSelector = document.querySelector("#photoAddPopup");
+export const popupSelector = ".popup"
+export const containerSelector = ".popup__image-container"
