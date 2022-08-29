@@ -14,4 +14,4 @@
 * функция добавления фото
 
 #### Cсылка на проект
-* (https://nataliazaitceva.github.io/mesto/src/index.html)
+* (https://nataliazaitceva.github.io/mesto)
