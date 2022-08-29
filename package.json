@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/NataliaZaitceva/mesto/issues"
   },
-  "homepage": "https://NataliaZaitceva.github.io/mesto",
+  "homepage": "https://github.com/NataliaZaitceva/mesto#readme",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
