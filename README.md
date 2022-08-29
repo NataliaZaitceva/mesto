@@ -9,9 +9,7 @@
 * Адаптивная верстка
 * файловая структура по БЭМ Nested
 * JS
-
-#### Планы по доработки
-* функция добавления фото
+* Webpack
 
 #### Cсылка на проект
-* (https://nataliazaitceva.github.io/mesto/src/index.html)
+* (https://nataliazaitceva.github.io/mesto)
