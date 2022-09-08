@@ -6,24 +6,25 @@ export class UserInfo {
   }
 
   getUserInfo() {
-    //возвращает объект с данными пользователя
-
-    //const inputName = document.querySelector('.popup__input_description_name');
-    //const inputProfession = document.querySelector('.popup__input_description_profession')
+    
     const profileInfo = {
       name: this._nameInput.textContent,
       about: this._jobInput.textContent,
-      //avatar: this._avatar.src
+     
     };
     return profileInfo;
   }
 
   setAvatar(avatar) {
+   if (avatar) {
     this._avatar.src = avatar;
   }
+}
 
   setUserInfo({ name, about }) {
+   if(name, about) {
     this._nameInput.textContent = name;
     this._jobInput.textContent = about;
   }
+}
 }

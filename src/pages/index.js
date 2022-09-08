@@ -16,15 +16,14 @@ import {
   avatarPopup,
   btnEditAvatar,
   btnConfirm,
-  avatar,
-} from "../components/components.js";
+  nameInput,
+  jobInput,
+  profileName,
+  profileProfession,
+
+  avatar} from "../utils/constants.js";
 import { UserInfo } from "../components/UserInfo.js";
 
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  aboutSelector: ".profile__subtitle",
-  avatarSelector: ".profile__avatar",
-});
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-49/",
@@ -35,46 +34,76 @@ const api = new Api({
 
 let userId;
 
-function renderUser(data) {
+/*function renderUser(data) {
   api.getInfo(data).then((data) => {
     userInfo.setUserInfo(data.name, data.about);
     userInfo.setAvatar(data.avatar);
     console.log(data);
   });
-}
+}*/
 
-renderUser();
+//renderUser();
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name", 
 
-function handlePopupProfile(inputsData) {
-  popupNewProfile.loading(true);
-  api
-    .saveInfo(inputsData)
-    .then((data) => {
-      userInfo.setUserInfo(data);
-      popupNewProfile.close();
-    })
-    .catch((err) => {
-      console.log(`Ошибка: ${err}`);
-    })
-    .finally(() => {
-      popupNewProfile.loading(false);
-    });
-}
+  aboutSelector: ".profile__subtitle", 
 
-const popupNewProfile = new PopupWithForm({
-  popupSelector: "#popupeditprofile",
-  handleSubmit: (name, about) => {
-    handlePopupProfile(name, about);
-    popupNewProfile.close();
-  },
+  avatarSelector: ".profile__avatar", 
 });
 
-popupNewProfile.setEventListeners();
+function handlePopupProfile(inputsEdit) { 
 
-profileEditButton.addEventListener("click", () => {
-  popupNewProfile.open();
-  cardValidity.enableValidation();
-});
+  popupNewProfile.loading(true); 
+
+  api 
+
+    .saveInfo(inputsEdit) 
+    .then((data) => { 
+      userInfo.setUserInfo(inputsEdit); 
+      popupNewProfile.close(); 
+console.log (inputsEdit)
+    }) 
+    .catch((err) => { 
+      console.log(`Ошибка: ${err}`); 
+    }) 
+    .finally(() => { 
+      popupNewProfile.loading(false); 
+    }); 
+
+} 
+
+ 
+const popupNewProfile = new PopupWithForm({ 
+
+  popupSelector: "#popupeditprofile", 
+
+  handleSubmit: (inputsEdit) => { 
+
+    handlePopupProfile(inputsEdit); 
+console.log(inputsEdit)
+
+   // popupNewProfile.close(); 
+
+  }, 
+
+}); 
+
+ 
+
+popupNewProfile.setEventListeners(); 
+
+ 
+
+profileEditButton.addEventListener("click", () => { 
+
+  popupNewProfile.open(); 
+  nameInput.value = profileName.textContent;
+  jobInput.value =  profileProfession.textContent;
+ // cardValidity.enableValidation(); 
+
+}); 
+
+ 
 
 const imagePopup = new PopupWithImage(".popup_image_max");
 imagePopup.setEventListeners();
@@ -97,7 +126,7 @@ const createCard = (data) => {
         confirmationPopup.open();
         confirmationPopup.submitCallback(() => {
           api
-            .deleteUserCard(cardId)
+            .deleteUserCard(cardId, cardElement)
             .then(() => {
               confirmationPopup.close();
               newCard.deleteCard();
@@ -146,6 +175,7 @@ const popupAddPicture = new PopupWithForm({
       .then((data) => {
         if (data) cardList.addItem(createCard(data));
         console.log(data);
+        popupAddPicture.close()
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
@@ -166,6 +196,7 @@ const editAvatarPopup = new PopupWithForm({
       .then(() => {
         userInfo.setAvatar(data.avatar);
         editAvatarPopup.close();
+        
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
@@ -180,13 +211,13 @@ editAvatarPopup.setEventListeners();
 
 btnEditAvatar.addEventListener("click", () => {
   editAvatarPopup.open();
-  formAvatarValidity.enableValidation();
+ // formAvatarValidity.enableValidation();
 });
 
 const cardList = new Section(
   {
     renderer: (data) => {
-      cardList.addItem(createCard(data));
+      cardList.addItemAppend(createCard(data));
     },
   },
   ".gallery"
@@ -196,25 +227,33 @@ popupAddPicture.setEventListeners();
 
 btnPhotoAdd.addEventListener("click", () => {
   popupAddPicture.open();
-  profileValidity.enableValidation();
+  //profileValidity.enableValidation();
 });
 
-api.getInitialCards().then((data) => {
+/*api.getInitialCards().then((data) => {
   cardList.renderItems(data);
-});
+});*/
 
-Promise.all([api.getInitialCards(), api.getInfo()])
-  .then(([initialCards, userData]) => {
+Promise.all([api.getInfo(), /*api.updateUserPhoto(),*/ api.getInitialCards(), ])
+  .then(([userData, initialCards]) => {
+  
+    
     userInfo.setUserInfo(userData);
-    userId = userData._id;
+    userInfo.setAvatar(userData.avatar);
+      userId = userData._id;
     cardList.renderItems(initialCards);
+    
+    
   })
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
   });
 
-const cardValidity = new FormValidator(validationObject, profilePopup);
+const cardValidity = new FormValidator(validationObject, popupAdd);
+cardValidity.enableValidation()
 
-const profileValidity = new FormValidator(validationObject, popupAdd);
+const profileValidity = new FormValidator(validationObject, profilePopup);
+profileValidity.enableValidation()
 
 const formAvatarValidity = new FormValidator(validationObject, avatarPopup);
+formAvatarValidity.enableValidation()

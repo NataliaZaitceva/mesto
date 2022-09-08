@@ -80,7 +80,7 @@ handleLikeCard() {
 
   _setEventListeners() {
     this._btnDelete.addEventListener("click", () => {
-        this._handleDeleteUsersCard(this._cardId);
+        this._handleDeleteUsersCard(this._cardId, this);
       })
       
       this._btnLike.addEventListener("click", () => {

@@ -4,17 +4,19 @@ export class Api {
     this._token = headers["authorization"];
   }
 
+  _getResponseData(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
   getInitialCards() {
     return fetch(`${this._baseUrl}cards`, {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   addCards(data) {
@@ -28,12 +30,7 @@ export class Api {
         link: data.link,
         name: data.name,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   getInfo() {
@@ -41,12 +38,7 @@ export class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   saveInfo({ name, about }) {
@@ -60,12 +52,7 @@ export class Api {
         name: name,
         about: about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   likedCard(cardId) {
@@ -74,12 +61,7 @@ export class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json(), console.log(res);
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   dislikedCard(cardId) {
@@ -88,12 +70,7 @@ export class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json(), console.log(res);
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   deleteUserCard(cardId) {
@@ -102,12 +79,7 @@ export class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   updateUserPhoto(avatar) {
@@ -120,12 +92,7 @@ export class Api {
       body: JSON.stringify({
         avatar: avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json(), console.log(res);
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._getResponseData);
   }
 
   // другие методы работы с API
