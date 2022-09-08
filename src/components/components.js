@@ -27,6 +27,7 @@ export const title = document.querySelector(".gallery__title");
 
 export const list = document.querySelector(".gallery");
 export const formAddButton = document.querySelector("addProfileForm");
+export const avatarForm = document.querySelector('changeavatarform')
 export const formInput = document.querySelector(".popup__photo-container");
 export const link = document.querySelector(".popup__input_description_link");
 export const photoName = document.querySelector(".popup__input_description_place");
@@ -34,6 +35,7 @@ export const photoDescription = document.querySelector(".gallery__description");
 export const popupImageMax = document.querySelector(".popup_image_max");
 export const picturePopup = document.querySelector(".popup__image");
 export const subtitlePopup = document.querySelector(".popup__subtitle");
+export const popupInput = document.querySelector(".popup__input")
 
 export const btnPhotoAdd = document.querySelector(".button_view_add");
 export const galleryName = document.querySelector(".gallery__title");
@@ -44,3 +46,7 @@ export const cardListSection = ".gallery"
 export const photoAddSelector = document.querySelector("#photoAddPopup");
 export const popupSelector = ".popup"
 export const containerSelector = ".popup__image-container"
+export const btnEditAvatar = document.querySelector('.button_view_avatar')
+export const avatarPopup = document.querySelector('#popupavatar');
+export const btnConfirm = document.querySelector('.button__confirmation')
+export const avatar = document.querySelector('.avatar')

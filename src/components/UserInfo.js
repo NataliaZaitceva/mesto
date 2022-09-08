@@ -1,22 +1,29 @@
 export class UserInfo {
-    constructor({nameSelector, aboutSelector}){
-        this._nameInput = document.querySelector(nameSelector);
-        this._jobInput = document.querySelector(aboutSelector);
-    }
+  constructor({ nameSelector, aboutSelector, avatarSelector }) {
+    this._nameInput = document.querySelector(nameSelector);
+    this._jobInput = document.querySelector(aboutSelector);
+    this._avatar = document.querySelector(avatarSelector);
+  }
 
-    getUserInfo() { //возвращает объект с данными пользователя 
-       
-       //const inputName = document.querySelector('.popup__input_description_name');
-       //const inputProfession = document.querySelector('.popup__input_description_profession')
-       const profileInfo = {
-        profileName: this._nameInput.textContent,
-        profileProfession: this._jobInput.textContent
-};
-       return profileInfo;
-    }
+  getUserInfo() {
+    //возвращает объект с данными пользователя
 
-    setUserInfo({name, profession}) { //принимает новые данные пользователя и добавляет их на страницу
-       this._nameInput.textContent = name;
-       this._jobInput.textContent = profession;
-    }
+    //const inputName = document.querySelector('.popup__input_description_name');
+    //const inputProfession = document.querySelector('.popup__input_description_profession')
+    const profileInfo = {
+      name: this._nameInput.textContent,
+      about: this._jobInput.textContent,
+      //avatar: this._avatar.src
+    };
+    return profileInfo;
+  }
+
+  setAvatar(avatar) {
+    this._avatar.src = avatar;
+  }
+
+  setUserInfo({ name, about }) {
+    this._nameInput.textContent = name;
+    this._jobInput.textContent = about;
+  }
 }
