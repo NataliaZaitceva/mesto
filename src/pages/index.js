@@ -80,7 +80,7 @@ const imagePopup = new PopupWithImage(".popup_image_max");
 imagePopup.setEventListeners();
 
 const confirmationPopup = new PopupWithConfirmation({
-  popupSelector: ".popup__confirmation",
+  popupSelector: ".popup_confirmation",
 });
 
 confirmationPopup.setEventListeners();

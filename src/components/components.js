@@ -48,5 +48,5 @@ export const popupSelector = ".popup"
 export const containerSelector = ".popup__image-container"
 export const btnEditAvatar = document.querySelector('.button_view_avatar')
 export const avatarPopup = document.querySelector('#popupavatar');
-export const btnConfirm = document.querySelector('.button__confirmation')
+export const btnConfirm = document.querySelector('.button_view_confirmation')
 export const avatar = document.querySelector('.avatar')
